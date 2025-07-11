@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smart Resume Assistant</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Smart Resume Assistant</h1>
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tab-btn" data-tab="analyze-tab">Analyze Resume</button>
+      <button class="tab-btn" data-tab="match-tab">Match with JD</button>
+    </div>
+
+    <!-- Analyze Resume Tab -->
+    <div class="tab-content" id="analyze-tab">
+      <form id="analyze-form">
+        <label for="resume-analyze">Upload Resume (PDF):</label>
+        <input type="file" id="resume-analyze" accept=".pdf" required />
+        <button type="submit">
+          Analyze Resume
+          <span class="spinner hidden" id="analyze-spinner"></span>
+        </button>
+
+      </form>
+      <div class="results">
+        <h2>Analysis Result</h2>
+        <pre id="analyze-result">No result yet.</pre>
+        <button id="analyze-download-json" disabled>Download JSON</button>
+        <button id="analyze-download-pdf" disabled>Download PDF</button>
+      </div>
+    </div>
+
+    <!-- Match JD Tab -->
+    <div class="tab-content hidden" id="match-tab">
+      <form id="match-form">
+        <label for="resume-match">Resume (PDF):</label>
+        <input type="file" id="resume-match" accept=".pdf" required />
+
+        <label for="jd-file">Job Description File (PDF/TXT):</label>
+        <input type="file" id="jd-file" accept=".pdf,.txt" />
+
+        <label for="jd-text">Or paste JD text:</label>
+        <textarea id="jd-text" placeholder="Paste job description..."></textarea>
+
+        <button type="submit">
+          Match Resume
+          <span class="spinner hidden" id="match-spinner"></span>
+        </button>
+
+      </form>
+      <div class="results">
+        <h2>Match Result</h2>
+        <pre id="match-result">No result yet.</pre>
+        <button id="match-download-json" disabled>Download JSON</button>
+        <button id="match-download-pdf" disabled>Download PDF</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
